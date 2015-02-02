@@ -20,6 +20,10 @@ package cs.ualberta.ca.devito_notes;
 
 public class ExpenseListController {
 	//lazy singleton
+	//Inspired by the series of videos beginning with https://www.youtube.com/watch?v=5PPD0ncJU1g
+	//by Abram Hindle
+	//Posted on: Sep 11, 2014
+	//Today : 2/2/2015
 	private static ExpenseList claimList = null;
 	static public ExpenseList getClaimList(){
 		if (claimList == null){

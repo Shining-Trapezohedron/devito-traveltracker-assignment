@@ -22,6 +22,10 @@ import java.util.ArrayList;
 
 public class ClaimHolderController {
 	//lazy singleton
+	//Inspired by the series of videos beginning with https://www.youtube.com/watch?v=5PPD0ncJU1g
+	//by Abram Hindle
+	//Posted on: Sep 11, 2014
+	//Today : 2/2/2015
 	private static ArrayList<ClaimHolder> claimholderlist= null;
 	static public ArrayList<ClaimHolder> getClaimHolderList(){
 		if (claimholderlist == null){
