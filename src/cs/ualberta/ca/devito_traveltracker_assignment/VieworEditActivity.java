@@ -3,6 +3,7 @@ package cs.ualberta.ca.devito_traveltracker_assignment;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +16,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class VieworEditActivity extends Activity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,7 +31,8 @@ public class VieworEditActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
+				Intent intent = new Intent(VieworEditActivity.this, Viewclaimactivity.class);
+				startActivity(intent);
 				
 			}
 			

@@ -9,7 +9,7 @@ public class Claim{
 	private String category;
 	private String status;
 	private String description;
-	private ArrayList<Amount> myAmounts;
+	private ArrayList<Amount> myAmounts = new ArrayList<Amount>();
 	private int MyAmountsSize = 0; 
 	public String getName(){
 		return name;

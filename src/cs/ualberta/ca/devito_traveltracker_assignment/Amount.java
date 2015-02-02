@@ -18,4 +18,8 @@ public class Amount {
 	protected void setCurrency(String newCurrency){
 		currency = newCurrency;
 	}
+	public String toString(){
+		return String.valueOf(getAmount()) + " " + getCurrency();
+		
+	}
 }

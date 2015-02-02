@@ -1,110 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/viewClaimtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Claim :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/claim_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Claim :"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/type_text"
+        android:text="Status :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/viewClaimtext"
+        android:text="Type  :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/type_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type  :"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/editbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Done" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/datetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/status_text"
+        android:text="Date Started :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/status_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status :"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/amounts_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amount :"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/amounts_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/datetext"
+        android:text="Amount :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ListView
         android:id="@+id/amount_listview"
         android:layout_width="match_parent"
-        android:layout_height="134dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/amounts_text"
         tools:listitem="@android:layout/simple_list_item_1" >
     </ListView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/total_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total :"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/emailbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="E-Mail" />
 
     <ListView
         android:id="@+id/total_listview"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_above="@+id/editbutton"
+        android:layout_alignParentLeft="true"
         tools:listitem="@android:layout/simple_list_item_1" >
-
     </ListView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/total_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/total_listview"
+        android:layout_alignParentLeft="true"
+        android:text="Total :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <Button
-            android:id="@+id/delete_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete" />
+    <EditText
+        android:id="@+id/amountfieldedit"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/amount_listview"
+        android:ems="10"
+        android:inputType="number" />
 
-        <Button
-            android:id="@+id/email_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="E-Mail" />
+    <Spinner
+        android:id="@+id/curspinneredit"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/amountfieldedit"
+        android:layout_toRightOf="@+id/viewClaimtext"
+        android:entries="@array/currency_array"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
-        <Button
-            android:id="@+id/edit_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Edit" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/addamountbuttonedit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/curspinneredit"
+        android:layout_toRightOf="@+id/datetext"
+        android:text="Add" />
 
-</LinearLayout>
+</RelativeLayout>

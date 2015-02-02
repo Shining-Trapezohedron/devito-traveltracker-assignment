@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ public class AddClaimActivity extends Activity {
 	protected Spinner category_spinner;
 	protected Spinner status_spinner;
 	protected Spinner cur_spinner;
-	private ArrayList<Amount> amountstoadd;
+	private ArrayList<Amount> amountstoadd = new ArrayList<Amount>();
 	private EditText claimText;
 	private EditText descText;
 	private EditText ammountText;
@@ -58,7 +59,7 @@ public class AddClaimActivity extends Activity {
 		status_spinner = (Spinner) findViewById(R.id.status_spinner);
 		status_spinner.setOnItemSelectedListener(new SpinnerSelectedListener());
 		
-		cur_spinner = (Spinner) findViewById(R.id.curspinner);
+		cur_spinner = (Spinner) findViewById(R.id.curspinneredit);
 		cur_spinner.setOnItemSelectedListener(new SpinnerSelectedListener());
 		  }
 		 
@@ -82,7 +83,7 @@ public class AddClaimActivity extends Activity {
 		claimText = (EditText) findViewById(R.id.claim_text_field);
 		descText = (EditText) findViewById(R.id.description_text_field);
 		String ClaimTextFromField = claimText.getText().toString();
-		String descriptionText = descText.toString();
+		String descriptionText = descText.getText().toString();
 		boolean flag = isAlpha(ClaimTextFromField);
 		if(flag == true){
 			Claim ourClaim = new Claim();
@@ -98,9 +99,10 @@ public class AddClaimActivity extends Activity {
 			ourClaim.setName(ClaimTextFromField);
 			ourClaim.setCategory(categorySet);
 			ourClaim.setStatus(statusSet);
-			/*for(int i = 0; i < amountstoadd.size(); i++){
+			ourClaim.setDescription(descriptionText);
+			for(int i = 0; i < amountstoadd.size(); i++){
 				ourClaim.addAmount(amountstoadd.get(i));
-			}*/
+			}
 			ClaimListController cs = new ClaimListController();
 			cs.addClaim(ourClaim);
 			
@@ -109,19 +111,24 @@ public class AddClaimActivity extends Activity {
 			startActivity(intent);
 		};
 	}
-	/*public void addamount(View v){
-		Spinner curSpin = (Spinner)findViewById(R.id.type_spinner);
+	public void addamountaction(View v){
+		Toast.makeText(this, "Adding an amount", Toast.LENGTH_SHORT).show();
+		Spinner curSpin = (Spinner)findViewById(R.id.curspinneredit);
 		String cur= curSpin.getSelectedItem().toString();
 		
 		ammountText = (EditText) findViewById(R.id.amountfield);
-		int ammount = Integer.parseInt((ammountText.getText().toString()));
+		int amountFound = Integer.parseInt((ammountText.getText().toString()));
 		Amount amount = new Amount();
-		amount.setAmount(ammount);
+		amount.setAmount(amountFound);
 		amount.setCurrency(cur);
 		amountstoadd.add(amount);
+		ListView amountView = (ListView) findViewById(R.id.add_amount_list);
+		ArrayAdapter<Amount> amountAdapter = new ArrayAdapter<Amount>(this, android.R.layout.simple_list_item_1, amountstoadd);
+		amountView.setAdapter(amountAdapter);
+		
 		
 	}
-		*/
+		
 		
 	/*Spinner spinner = (Spinner) findViewById(R.id.type_spinner);
 	// Create an ArrayAdapter using the string array and a default spinner layout

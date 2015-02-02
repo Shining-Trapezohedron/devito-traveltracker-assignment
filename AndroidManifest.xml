@@ -38,6 +38,10 @@
             android:name=".AddClaimActivity"
             android:label="@string/title_activity_add_claim" >
         </activity>
+        <activity
+            android:name=".Viewclaimactivity"
+            android:label="@string/title_activity_viewclaimactivity" >
+        </activity>
     </application>
 
 </manifest>
