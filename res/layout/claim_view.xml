@@ -21,12 +21,13 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/datetext"
         android:text="Amount :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14dp" />
 
     <ListView
         android:id="@+id/amount_listview"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/amounts_text"
         tools:listitem="@android:layout/simple_list_item_1" >
@@ -40,55 +41,6 @@
         android:layout_alignParentLeft="true"
         android:text="E-Mail" />
 
-    <EditText
-        android:id="@+id/amountfieldedit"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/amount_listview"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
-    <Spinner
-        android:id="@+id/curspinneredit"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/amountfieldedit"
-        android:layout_toRightOf="@+id/amountfieldedit"
-        android:entries="@array/currency_array"
-        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
-
-    <Button
-        android:id="@+id/addamountbuttonedit"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/curspinneredit"
-        android:layout_centerHorizontal="true"
-        android:onClick="amountaddedit"
-        android:text="Add" />
-
-    <ListView
-        android:id="@+id/ListView01"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/total_text"
-        tools:listitem="@android:layout/simple_list_item_1" >
-    </ListView>
-
-    <TextView
-        android:id="@+id/type_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/viewClaimtext"
-        android:text="Category  :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <TextView
         android:id="@+id/viewClaimtext"
         android:layout_width="wrap_content"
@@ -99,21 +51,6 @@
         android:text="Claim :"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/editdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/amounts_text"
-        android:layout_toRightOf="@+id/datetext" />
-
-    <EditText
-        android:id="@+id/editcategory"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editClaim"
-        android:layout_toRightOf="@+id/type_text"
-        android:ems="10" />
-
     <EditText
         android:id="@+id/editClaim"
         android:layout_width="wrap_content"
@@ -123,12 +60,21 @@
         android:ems="10" />
 
     <TextView
-        android:id="@+id/total_text"
+        android:id="@+id/editdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/viewClaimtext"
-        android:layout_below="@+id/amountfieldedit"
-        android:text="Total :"
+        android:layout_alignTop="@+id/datetext"
+        android:layout_toRightOf="@+id/datetext"
+        android:text="asdf" />
+
+    <TextView
+        android:id="@+id/type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/viewClaimtext"
+        android:layout_marginTop="17dp"
+        android:text="Category  :"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -137,26 +83,92 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/status_text"
+        android:layout_marginTop="14dp"
         android:text="Date Started :"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/editcatpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/status_text"
+        android:layout_alignLeft="@+id/editClaim"
+        android:layout_alignRight="@+id/editClaim"
+        android:layout_below="@+id/editClaim"
+        android:entries="@array/category_array"
+        tools:listitem="@android:layout/simple_spinner_item" />
+
+    <Spinner
+        android:id="@+id/editstatspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/datetext"
+        android:layout_alignLeft="@+id/curspinneredit"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/type_text"
+        android:entries="@array/status_array"
+        tools:listitem="@android:layout/simple_spinner_item" />
 
     <TextView
         android:id="@+id/status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editcategory"
+        android:layout_below="@+id/type_text"
         android:layout_marginTop="15dp"
         android:text="Status :"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Spinner
-        android:id="@+id/editcatspinner"
+    <EditText
+        android:id="@+id/amountfieldedit"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/amounts_text"
+        android:layout_below="@+id/amount_listview"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/total_text"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@+id/editcategory"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/amountfieldedit"
+        android:text="Total :"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14dp" />
+
+    <Spinner
+        android:id="@+id/curspinneredit"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/editdate"
+        android:layout_alignTop="@+id/amountfieldedit"
         android:layout_toRightOf="@+id/viewClaimtext"
-        android:entries="@array/category_array"
-        tools:listitem="@android:layout/simple_spinner_item" />
+        android:entries="@array/currency_array"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <Button
+        android:id="@+id/addamountbuttonedit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/amount_listview"
+        android:layout_centerHorizontal="true"
+        android:onClick="amountaddedit"
+        android:text="Add" />
+
+    <ListView
+        android:id="@+id/ListView01"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/total_text"
+        android:layout_toRightOf="@+id/total_text"
+        tools:listitem="@android:layout/simple_list_item_1" >
+    </ListView>
 
 </RelativeLayout>

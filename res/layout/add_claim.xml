@@ -48,6 +48,7 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/amounts_text"
+        android:textSize="12sp"
         app:listitem="@android:layout/simple_list_item_1" >
 
     </ListView>

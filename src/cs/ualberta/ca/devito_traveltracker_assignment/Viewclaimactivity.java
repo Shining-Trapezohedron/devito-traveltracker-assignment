@@ -9,10 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class Viewclaimactivity extends Activity {
 	private TextView claimText = null;
+	private Spinner catSpin;
+	private Spinner statSpin;
+	private TextView dateText = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,10 @@ public class Viewclaimactivity extends Activity {
 		Intent intent = getIntent();
 		Claim gotClaim = (Claim) intent.getSerializableExtra("passClaim");
 		//int pos = (Integer) intent.getSerializableExtra("position");
-		claimview = (TextView) findViewById(R.id.editClaim);
-		claimview.setText(gotClaim.getName());
+		claimText = (TextView) findViewById(R.id.editClaim);
+		claimText.setText(gotClaim.getName());
+		catSpin = (Spinner) findViewById(R.id.editcatpinner);
+		catSpin.setSelection(getIndex(catSpin,gotClaim.getCategory()));
 		
 		ListView listView = (ListView) findViewById(R.id.amount_listview);
 		//Claim claim = ClaimListController.getClaimList().getClaimList().get(pos);
@@ -51,4 +57,18 @@ public class Viewclaimactivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	//Got from
+	//http://www.mysamplecode.com/2012/11/android-spinner-set-selected-item-by-value.html
+	//2/2/2015
+	private int getIndex(Spinner spinner, String myString){
+		 
+		  int index = 0;
+		 
+		  for (int i=0;i<spinner.getCount();i++){
+		   if (spinner.getItemAtPosition(i).equals(myString)){
+		    index = i;
+		   }
+		  }
+		  return index;
+		 }
 }
