@@ -21,3 +21,9 @@ MainMenu -
   deleted
   WARNING : NO PROMPT FOR DELETION
   The user is able to email expense items individually or email the entire claim
+
+
+
+
+
+side note(personal thoughts): Had gotten quite confused with the difference between a claim and expense didn't notice I have                               the incorrect structure until I had gone to do the video (oops)
