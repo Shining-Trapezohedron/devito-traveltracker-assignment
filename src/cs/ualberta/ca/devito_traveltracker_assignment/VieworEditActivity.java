@@ -6,8 +6,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class VieworEditActivity extends Activity {
 
@@ -15,13 +20,38 @@ public class VieworEditActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vieworedit_listview);
-		ListView listview = (ListView) findViewById(R.id.claimlistview);
+		ListView listView = (ListView) findViewById(R.id.claimlistview);
 		ArrayList<Claim> claimlist = ClaimListController.getClaimList().getClaimList();
-		ArrayList<Claim> list = new ArrayList<Claim>(claimlist);
+		final ArrayList<Claim> list = new ArrayList<Claim>(claimlist);
 		ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
-		listview.setAdapter(claimAdapter);
+		listView.setAdapter(claimAdapter);
+		
+		listView.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		listView.setOnItemLongClickListener(new OnItemLongClickListener(){
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Toast.makeText(VieworEditActivity.this, "Delete "+ list.get(position).toString(), 
+					Toast.LENGTH_SHORT).show();	
+				Claim claim = list.get(position);
+				ClaimListController.getClaimList().removeClaim(claim);
+					
+				return false;
+			}
+			
+		});
 	}
- 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -40,4 +70,5 @@ public class VieworEditActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 }

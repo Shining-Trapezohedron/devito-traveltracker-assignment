@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string-array name="currency_array">
-        <item>CAD</item>
-        <item>USD</item>
-        <item>EUR</item>
-        <item>INR</item>
-        <item>AUS</item>
-        <item>ILS</item>
+    <string-array name="status_array">
+        <item>In Progress</item>
+        <item>Submitted</item>
+        <item>Returned</item>
+        <item>Approved</item>
     </string-array>
 </resources>
 

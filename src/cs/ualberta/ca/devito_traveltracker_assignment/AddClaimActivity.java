@@ -3,6 +3,7 @@ package cs.ualberta.ca.devito_traveltracker_assignment;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,8 +19,11 @@ import android.widget.Toast;
 public class AddClaimActivity extends Activity {
 	protected Spinner category_spinner;
 	protected Spinner status_spinner;
+	protected Spinner cur_spinner;
+	private ArrayList<Amount> amountstoadd;
 	private EditText claimText;
 	private EditText descText;
+	private EditText ammountText;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,6 +57,9 @@ public class AddClaimActivity extends Activity {
 		
 		status_spinner = (Spinner) findViewById(R.id.status_spinner);
 		status_spinner.setOnItemSelectedListener(new SpinnerSelectedListener());
+		
+		cur_spinner = (Spinner) findViewById(R.id.curspinner);
+		cur_spinner.setOnItemSelectedListener(new SpinnerSelectedListener());
 		  }
 		 
 	public boolean isAlpha(String name) {
@@ -85,12 +92,15 @@ public class AddClaimActivity extends Activity {
 			
 			Spinner statusS = (Spinner) findViewById(R.id.status_spinner);
 			String statusSet = statusS.getSelectedItem().toString();
-			Toast.makeText(this,statusSet, Toast.LENGTH_SHORT).show();
+			Toast.makeText(this,"Thanks for the Claim", Toast.LENGTH_SHORT).show();
 			
 			
 			ourClaim.setName(ClaimTextFromField);
 			ourClaim.setCategory(categorySet);
 			ourClaim.setStatus(statusSet);
+			/*for(int i = 0; i < amountstoadd.size(); i++){
+				ourClaim.addAmount(amountstoadd.get(i));
+			}*/
 			ClaimListController cs = new ClaimListController();
 			cs.addClaim(ourClaim);
 			
@@ -99,7 +109,19 @@ public class AddClaimActivity extends Activity {
 			startActivity(intent);
 		};
 	}
+	/*public void addamount(View v){
+		Spinner curSpin = (Spinner)findViewById(R.id.type_spinner);
+		String cur= curSpin.getSelectedItem().toString();
 		
+		ammountText = (EditText) findViewById(R.id.amountfield);
+		int ammount = Integer.parseInt((ammountText.getText().toString()));
+		Amount amount = new Amount();
+		amount.setAmount(ammount);
+		amount.setCurrency(cur);
+		amountstoadd.add(amount);
+		
+	}
+		*/
 		
 	/*Spinner spinner = (Spinner) findViewById(R.id.type_spinner);
 	// Create an ArrayAdapter using the string array and a default spinner layout
