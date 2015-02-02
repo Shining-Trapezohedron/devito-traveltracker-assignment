@@ -33,7 +33,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/vieweditbutton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp"
-        android:text="Add a new claim" />
+        android:layout_marginTop="22dp"
+        android:text="Add a new item" />
+
+    <Button
+        android:id="@+id/changeclaimbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addbutton"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/addbutton"
+        android:layout_marginTop="32dp"
+        android:text="Change or make new claim" />
 
 </RelativeLayout>

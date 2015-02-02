@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/newbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="addnewclaim"
+        android:text="New" />
+
+    <EditText
+        android:id="@+id/superstartdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/newbutton"
+        android:layout_alignParentLeft="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/superenddate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/superstartdate"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/supernametext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/superstartdate"
+        android:layout_alignParentRight="true"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/superclaimname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/supernametext"
+        android:layout_alignBottom="@+id/supernametext"
+        android:layout_toLeftOf="@+id/supernametext"
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/totext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/superenddate"
+        android:layout_toRightOf="@+id/superstartdate"
+        android:text="to"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ListView
+        android:id="@+id/superclaimlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/supernametext"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        tools:listitem="@android:layout/simple_list_item_1" >
+    </ListView>
+
+</RelativeLayout>

@@ -42,6 +42,10 @@
             android:name=".Viewclaimactivity"
             android:label="@string/title_activity_viewclaimactivity" >
         </activity>
+        <activity
+            android:name=".Superlist"
+            android:label="@string/title_activity_superlist" >
+        </activity>
     </application>
 
 </manifest>
