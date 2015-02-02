@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.Menu;
@@ -98,6 +99,18 @@ public class ClaimSummaryActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	public void sendemailaction(View v){
+		//Taken from http://stackoverflow.com/a/8284804
+		//2/2/2015
+		Intent send = new Intent(Intent.ACTION_SENDTO);
+		String uriText = "mailto:" + Uri.encode("email@gmail.com") + 
+		          "?subject=" + Uri.encode("the subject") + 
+		          "&body=" + Uri.encode("the body of the message");
+		Uri uri = Uri.parse(uriText);
+
+		send.setData(uri);
+		startActivity(Intent.createChooser(send, "Send mail..."));
 	}
 	
 }

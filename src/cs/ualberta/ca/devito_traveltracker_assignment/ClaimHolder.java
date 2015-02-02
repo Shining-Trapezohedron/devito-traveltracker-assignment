@@ -51,7 +51,7 @@ public class ClaimHolder {
 		enddate = newend;
 	}
 	public String toString(){
-		String rv = name+"-"+startdate+"-"+enddate;
+		String rv = name+"-"+startdate+" to "+enddate;
 		return rv;
 	}
 	

@@ -84,20 +84,13 @@ public class AddExpenseActivity extends Activity {
 		cur_spinner.setOnItemSelectedListener(new SpinnerSelectedListener());
 		  }
 		 
-	public boolean isAlpha(String name) {
+	public boolean isNotEmpty(String name) {
 		//http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field
 		//2/1/2015
 	    char[] chars = name.toCharArray();
         if(name.isEmpty()){
         	return false;
         }
-	    for (char c : chars) {
-	        if(!Character.isLetter(c) && !Character.isDigit(c)) {
-	        	//Toast.makeText(this,name, Toast.LENGTH_SHORT).show();
-	            return false;
-	        }
-
-	    }
 	    return true;
 	}
 	public void addclaimaction(View v){
@@ -109,7 +102,7 @@ public class AddExpenseActivity extends Activity {
 		String descriptionText = descText.getText().toString();
 		String date1Str = date1.getText().toString();
 		String date2str = date2.getText().toString();
-		boolean flag = isAlpha(ClaimTextFromField);
+		boolean flag = isNotEmpty(ClaimTextFromField);
 		if(flag == true){
 			Expense ourClaim = new Expense();
 			

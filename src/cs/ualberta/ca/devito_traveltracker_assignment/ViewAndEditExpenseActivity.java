@@ -138,21 +138,13 @@ public class ViewAndEditExpenseActivity extends Activity {
 	
 	
 	//Reuse code from Add Claim Activity
-	public boolean isAlpha(String name) {
+	public boolean isNotEmpty(String name) {
 		//http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field
 		//2/1/2015
 	    char[] chars = name.toCharArray();
         if(name.isEmpty()){
         	return false;
-        }
-	    for (char c : chars) {
-	        if(!Character.isLetter(c) && !Character.isDigit(c)) {
-	        	//Toast.makeText(this,name, Toast.LENGTH_SHORT).show();
-	            return false;
-	        }
-
-	    }
-	    return true;
+        }else return true;
 	}
 	
 	public void editclaimaction(View v){		
@@ -165,7 +157,7 @@ public class ViewAndEditExpenseActivity extends Activity {
 			descText = (EditText) findViewById(R.id.editdescriptiontext);
 			String ClaimTextFromField = claimText.getText().toString();
 			String descriptionText = descText.getText().toString();
-			boolean flag = isAlpha(ClaimTextFromField);
+			boolean flag = isNotEmpty(ClaimTextFromField);
 			if(flag == true){
 				Expense ourClaim = new Expense();
 			
