@@ -25,6 +25,8 @@ public class AddClaimActivity extends Activity {
 	private EditText claimText;
 	private EditText descText;
 	private EditText ammountText;
+	private EditText date1;
+	private EditText date2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -82,8 +84,12 @@ public class AddClaimActivity extends Activity {
 	public void addclaimaction(View v){
 		claimText = (EditText) findViewById(R.id.claim_text_field);
 		descText = (EditText) findViewById(R.id.description_text_field);
+		date1 = (EditText) findViewById(R.id.adddatefromfield);
+		date2 = (EditText) findViewById(R.id.adddatetofield);
 		String ClaimTextFromField = claimText.getText().toString();
 		String descriptionText = descText.getText().toString();
+		String date1Str = date1.getText().toString();
+		String date2str = date2.getText().toString();
 		boolean flag = isAlpha(ClaimTextFromField);
 		if(flag == true){
 			Claim ourClaim = new Claim();
@@ -100,6 +106,7 @@ public class AddClaimActivity extends Activity {
 			ourClaim.setCategory(categorySet);
 			ourClaim.setStatus(statusSet);
 			ourClaim.setDescription(descriptionText);
+			ourClaim.setDate(date1Str, date2str);
 			for(int i = 0; i < amountstoadd.size(); i++){
 				ourClaim.addAmount(amountstoadd.get(i));
 			}
@@ -107,8 +114,6 @@ public class AddClaimActivity extends Activity {
 			cs.addClaim(ourClaim);
 			
 			finish();
-			Intent intent = new Intent(AddClaimActivity.this, MainActivity.class);
-			startActivity(intent);
 		};
 	}
 	public void addamountaction(View v){

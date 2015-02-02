@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,10 +24,12 @@ public class Viewclaimactivity extends Activity {
 	private TextView descText;
 	private EditText ammountText;
 	private Claim gotClaim;
+	//private ArrayList<Amount> total = new ArrayList<Amount>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.claim_view);
 		
 		TextView claimview;
@@ -41,9 +44,36 @@ public class Viewclaimactivity extends Activity {
 		statSpin = (Spinner) findViewById(R.id.editstatspinner);
 		statSpin.setSelection(getIndex(statSpin,gotClaim.getStatus()));
 		dateText = (TextView) findViewById(R.id.editdate);
-		dateText.setText(gotClaim.getDate());
+		dateText.setText(gotClaim.getfromdate() + " to " +gotClaim.gettodate());
 		descText = (TextView) findViewById(R.id.editdescriptiontext);
 		descText.setText(gotClaim.getDescription());
+		
+		/*
+		 * Scrapped for now will re attempt if enough time
+		//Sum all of the currencies
+		ArrayList<Amount> amountslist = gotClaim.getAmountsList();
+		for(int i = 0;i<gotClaim.getAmountsSize();i++){
+			int addflag = 0;
+			if((total.size() == 0)){
+				total.add(amountslist.get(i));
+			} else{ 
+				for(int n = 0;n<total.size();n++){
+					if (total.get(n).getCurrency() == amountslist.get(i).getCurrency()){
+						total.get(n).setAmount(total.get(n).getAmount() + amountslist.get(i).getAmount());
+						addflag++;
+						Toast.makeText(Viewclaimactivity.this, String.valueOf(total.get(n).getAmount()), Toast.LENGTH_SHORT).show();
+						
+						} 
+					}
+
+				}
+			
+			}	
+		
+		ListView totalView = (ListView) findViewById(R.id.edittotal);
+		ArrayAdapter<Amount> totalAdapter = new ArrayAdapter<Amount>(this, android.R.layout.simple_list_item_1, amountslist);
+		totalView.setAdapter(totalAdapter);
+		*/
 		
 		ListView listView = (ListView) findViewById(R.id.amount_listview);
 		//Claim claim = ClaimListController.getClaimList().getClaimList().get(pos);
@@ -58,6 +88,7 @@ public class Viewclaimactivity extends Activity {
 		getMenuInflater().inflate(R.menu.viewclaimactivity, menu);
 		return true;
 	}
+
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -131,6 +162,7 @@ public class Viewclaimactivity extends Activity {
 				ourClaim.setCategory(categorySet);
 				ourClaim.setStatus(statusSet);
 				ourClaim.setDescription(descriptionText);
+				ourClaim.setDate(gotClaim.getfromdate(), gotClaim.gettodate());
 				for(int i = 0; i < gotClaim.getAmountsSize(); i++){
 					ourClaim.addAmount(gotClaim.getAmountsList().get(i));
 				}
@@ -140,8 +172,6 @@ public class Viewclaimactivity extends Activity {
 				ClaimListController.getClaimList().addClaim(ourClaim);
 			
 				finish();
-				Intent intent = new Intent(Viewclaimactivity.this, VieworEditActivity.class);
-				startActivity(intent);
 			}
 		}
 	}
@@ -163,5 +193,17 @@ public class Viewclaimactivity extends Activity {
 			
 			
 		}
+	public void emailaction(View v){
+		//Taken from http://stackoverflow.com/a/8284804
+		//2/2/2015
+		Intent send = new Intent(Intent.ACTION_SENDTO);
+		String uriText = "mailto:" + Uri.encode("email@gmail.com") + 
+		          "?subject=" + Uri.encode("the subject") + 
+		          "&body=" + Uri.encode("the body of the message");
+		Uri uri = Uri.parse(uriText);
+
+		send.setData(uri);
+		startActivity(Intent.createChooser(send, "Send mail..."));
+	}
 
 }

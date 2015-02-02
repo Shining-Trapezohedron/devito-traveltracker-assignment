@@ -19,10 +19,9 @@
         android:id="@+id/type_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/claim_text_field"
         android:layout_alignTop="@+id/type_text"
-        android:layout_toRightOf="@+id/amounts_text"
-        android:entries="@array/category_array" 
-        />
+        android:entries="@array/category_array" />
     
     <TextView
         android:id="@+id/status_text"
@@ -38,46 +37,9 @@
         android:id="@+id/status_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/type_spinner"
+        android:layout_alignLeft="@+id/claim_text_field"
         android:layout_alignTop="@+id/status_text"
-        android:entries="@array/status_array"  />
-
-    <ListView
-        android:id="@+id/add_amount_list"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/amounts_text"
-        android:textSize="12sp"
-        app:listitem="@android:layout/simple_list_item_1" >
-
-    </ListView>
-
-    <TextView
-        android:id="@+id/amounts_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/type_text"
-        android:layout_below="@+id/status_spinner"
-        android:text="Amount :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/done_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/description_text_field"
-        android:onClick="addclaimaction"
-        android:text="Done" />
-
-    <EditText
-        android:id="@+id/description_text_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/desciption_text"
-        android:ems="10" />
+        android:entries="@array/status_array" />
 
     <EditText
         android:id="@+id/amountfield"
@@ -96,7 +58,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/amountfield"
         android:text="Description :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/curspinneredit"
@@ -112,6 +75,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/amountfield"
         android:layout_below="@+id/add_amount_list"
         android:layout_toRightOf="@+id/curspinneredit"
         android:onClick="addamountaction"
@@ -133,6 +97,90 @@
         android:layout_alignBottom="@+id/claim_text"
         android:layout_toRightOf="@+id/type_text"
         android:ems="10" />
+
+    <TextView
+        android:id="@+id/amounts_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/status_spinner"
+        android:text="Amount :"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/adddatetofield"
+        android:onClick="addclaimaction"
+        android:text="Done" />
+
+    <EditText
+        android:id="@+id/description_text_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/desciption_text"
+        android:layout_alignBottom="@+id/desciption_text"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/amountfield"
+        android:ems="10" />
+
+    <ListView
+        android:id="@+id/add_amount_list"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/amounts_text"
+        android:layout_toRightOf="@+id/amounts_text"
+        android:textSize="12sp"
+        app:listitem="@android:layout/simple_list_item_1" >
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/adddatefrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/adddatetofield"
+        android:layout_alignBottom="@+id/adddatetofield"
+        android:layout_alignParentLeft="true"
+        android:text="Date : From :"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/adddatefromfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/done_button"
+        android:layout_alignLeft="@+id/description_text_field"
+        android:layout_toLeftOf="@+id/to"
+        android:ems="10"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/adddatetofield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/desciption_text"
+        android:layout_toRightOf="@+id/addamountbutton"
+        android:ems="10"
+        android:inputType="date" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/adddatetofield"
+        android:layout_alignBottom="@+id/adddatetofield"
+        android:layout_toLeftOf="@+id/adddatetofield"
+        android:text="to"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
 

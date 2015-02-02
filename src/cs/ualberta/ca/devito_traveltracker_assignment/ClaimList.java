@@ -13,8 +13,9 @@ public class ClaimList {
 		MyClaims.add(NewClaim);
 		this.size++;
 	}
-	public boolean removeClaim(Claim claimToRemove){
-		return MyClaims.remove(claimToRemove);
+	public void removeClaim(Claim claimToRemove){
+		MyClaims.remove(claimToRemove);
+		this.size--;
 	}
 	public int size(){
 		return this.size;

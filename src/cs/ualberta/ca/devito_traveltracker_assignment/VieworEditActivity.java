@@ -28,7 +28,9 @@ public class VieworEditActivity extends Activity {
 		listView.setAdapter(claimAdapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener(){
+			
 
+			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -40,8 +42,11 @@ public class VieworEditActivity extends Activity {
 				startActivity(intent);
 				
 			}
+
 			
 		});
+		
+		
 		listView.setOnItemLongClickListener(new OnItemLongClickListener(){
 
 			@Override
@@ -51,13 +56,13 @@ public class VieworEditActivity extends Activity {
 					Toast.LENGTH_SHORT).show();	
 				Claim claim = list.get(position);
 				ClaimListController.getClaimList().removeClaim(claim);
+				VieworEditActivity.this.recreate();
 					
 				return false;
 			}
 			
 		});
 	}
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

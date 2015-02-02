@@ -40,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:onClick="emailaction"
         android:text="E-Mail" />
 
     <TextView
@@ -58,8 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/datetext"
-        android:layout_toRightOf="@+id/datetext"
-        android:text="asdf" />
+        android:layout_toRightOf="@+id/datetext" />
 
     <TextView
         android:id="@+id/type_text"
@@ -79,7 +79,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/status_text"
         android:layout_marginTop="14dp"
-        android:text="Date Started :"
+        android:text="Date Range :"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="16sp" />
 
@@ -121,24 +121,15 @@
         android:id="@+id/curspinneredit"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/edittotal"
         android:layout_alignTop="@+id/amountfieldedit"
         android:layout_toLeftOf="@+id/addamountbuttonedit"
         android:layout_toRightOf="@+id/viewClaimtext"
         android:entries="@array/currency_array"
         tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
-    <Button
-        android:id="@+id/addamountbuttonedit"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_below="@+id/amount_listview"
-        android:layout_centerHorizontal="true"
-        android:onClick="amountaddedit"
-        android:text="Add" />
-
     <ListView
-        android:id="@+id/ListView01"
+        android:id="@+id/edittotal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignTop="@+id/total_text"
@@ -179,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ListView01"
+        android:layout_below="@+id/edittotal"
         android:text="Description"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="14sp" />
@@ -192,5 +183,17 @@
         android:layout_toLeftOf="@+id/editbutton"
         android:layout_toRightOf="@+id/emailbutton"
         android:ems="10" />
+
+    <Button
+        android:id="@+id/addamountbuttonedit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/curspinneredit"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/curspinneredit"
+        android:layout_toRightOf="@+id/editdescriptiontext"
+        android:onClick="amountaddedit"
+        android:text="Add" />
 
 </RelativeLayout>
