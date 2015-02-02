@@ -15,15 +15,6 @@
         android:text="Done" />
 
     <TextView
-        android:id="@+id/datetext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/status_text"
-        android:text="Date Started :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/amounts_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +26,7 @@
     <ListView
         android:id="@+id/amount_listview"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/amounts_text"
         tools:listitem="@android:layout/simple_list_item_1" >
@@ -77,21 +68,13 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/curspinneredit"
         android:layout_centerHorizontal="true"
+        android:onClick="amountaddedit"
         android:text="Add" />
-
-    <TextView
-        android:id="@+id/total_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/viewClaimtext"
-        android:layout_below="@+id/curspinneredit"
-        android:text="Total :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ListView
         android:id="@+id/ListView01"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/total_text"
         tools:listitem="@android:layout/simple_list_item_1" >
@@ -103,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/viewClaimtext"
-        android:text="Type  :"
+        android:text="Category  :"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -117,20 +100,63 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/status_text"
+        android:id="@+id/editdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/type_text"
-        android:text="Status :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_above="@+id/amounts_text"
+        android:layout_toRightOf="@+id/datetext" />
+
+    <EditText
+        android:id="@+id/editcategory"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editClaim"
+        android:layout_toRightOf="@+id/type_text"
+        android:ems="10" />
 
     <EditText
         android:id="@+id/editClaim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/amounts_text"
+        android:layout_alignBottom="@+id/viewClaimtext"
+        android:layout_toRightOf="@+id/type_text"
         android:ems="10" />
+
+    <TextView
+        android:id="@+id/total_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/viewClaimtext"
+        android:layout_below="@+id/amountfieldedit"
+        android:text="Total :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/datetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/status_text"
+        android:text="Date Started :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editcategory"
+        android:layout_marginTop="15dp"
+        android:text="Status :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/editcatspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/editcategory"
+        android:layout_toRightOf="@+id/viewClaimtext"
+        android:entries="@array/category_array"
+        tools:listitem="@android:layout/simple_spinner_item" />
 
 </RelativeLayout>
