@@ -102,6 +102,8 @@ public class ClaimSummaryActivity extends Activity {
 	}
 	public void sendemailaction(View v){
 		//Taken from http://stackoverflow.com/a/8284804
+		//By Igor Popov
+		//Written on Nov 27 '11
 		//2/2/2015
 		Intent send = new Intent(Intent.ACTION_SENDTO);
 		String uriText = "mailto:" + Uri.encode("email@gmail.com") + 

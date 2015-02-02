@@ -85,8 +85,10 @@ public class AddExpenseActivity extends Activity {
 		  }
 		 
 	public boolean isNotEmpty(String name) {
-		//http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field
-		//2/1/2015
+		// inspired from http://stackoverflow.com/a/4531500
+		// By user handle: svdree
+		// Written on : Dec 25 '10 at 20:03
+		// Todays date: 2/1/2015
 	    char[] chars = name.toCharArray();
         if(name.isEmpty()){
         	return false;

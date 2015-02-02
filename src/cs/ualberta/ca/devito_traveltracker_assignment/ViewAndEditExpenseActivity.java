@@ -120,9 +120,10 @@ public class ViewAndEditExpenseActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	//Got from
+	//Inspired by
 	//http://www.mysamplecode.com/2012/11/android-spinner-set-selected-item-by-value.html
-	//2/2/2015
+	//Posted on 2012/11
+	//Today 2/2/2015
 	//A helper function to get the index by value for our spinners
 	private int getIndex(Spinner spinner, String myString){
 		 
@@ -139,8 +140,10 @@ public class ViewAndEditExpenseActivity extends Activity {
 	
 	//Reuse code from Add Claim Activity
 	public boolean isNotEmpty(String name) {
-		//http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field
-		//2/1/2015
+		//Inspired by http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field
+		//writting by user handle: svdree
+		//Written on  Dec 25 '10 at 20:03
+		//Today 2/1/2015
 	    char[] chars = name.toCharArray();
         if(name.isEmpty()){
         	return false;
@@ -206,6 +209,8 @@ public class ViewAndEditExpenseActivity extends Activity {
 		}
 	public void emailaction(View v){
 		//Taken from http://stackoverflow.com/a/8284804
+		//By Igor Popov
+		//Written on Nov 27 '11
 		//2/2/2015
 		Intent send = new Intent(Intent.ACTION_SENDTO);
 		String uriText = "mailto:" + Uri.encode("email@gmail.com") + 
