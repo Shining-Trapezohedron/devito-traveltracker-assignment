@@ -1,8 +1,11 @@
 # devito-traveltracker-assignment
 A simple android app for tracking claims while travelling 
 
+app name is : devito-traveltracker-assignment
+apk can be found in : bin/
+
 USAGE
-MainMenu - 
+  MainMenu - 
   The user should create a claim through the Change or Add new Claim menu
   from here the use should see a list of currently available claims and will 
   load the claim on clicking it. 
