@@ -1,7 +1,7 @@
 # devito-traveltracker-assignment
 A simple android app for tracking claims while travelling 
 
-app name is : devito-traveltracker-assignment
+app name is : devito-notes
 apk can be found in : bin/
 
 USAGE
