@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="status_array">
+        <item>In Progress</item>
+        <item>Submitted</item>
+        <item>Returned</item>
+        <item>Approved</item>
+    </string-array>
+</resources>
+
+<!-- 
+Code inspiration to use a string resource and instructions taken from
+http://developer.android.com/guide/topics/resources/string-resource.html
+-->

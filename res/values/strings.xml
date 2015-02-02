@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">devito-traveltracker-assignment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_vieworedit_listview">Vieworedit_listview</string>
+    <string name="title_activity_vieworedit_liveview">Vieworedit_liveview</string>
+    <string name="title_activity_viewor_edit">View or Edit</string>
+    <string name="title_activity_add_claim">Add a Claim</string>
+
+</resources>
