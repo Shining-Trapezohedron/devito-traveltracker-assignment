@@ -1,6 +1,7 @@
 package cs.ualberta.ca.devito_traveltracker_assignment;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -15,7 +16,8 @@ public class Claim implements Serializable{
 	private String category;
 	private String status;
 	private String description;
-	private int date = new Date().getDate();
+	SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd");
+	private String date = f.format(new Date());
 	private ArrayList<Amount> myAmounts = new ArrayList<Amount>();
 	private int MyAmountsSize = 0; 
 	public String getName(){
@@ -60,7 +62,7 @@ public class Claim implements Serializable{
 	public String getDescription(){
 		return description;
 	}
-	public int getDate(){
+	public String getDate(){
 		return date;
 	}
 }

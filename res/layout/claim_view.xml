@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:onClick="editclaimaction"
         android:text="Done" />
 
     <TextView
@@ -22,12 +23,12 @@
         android:layout_below="@+id/datetext"
         android:text="Amount :"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="14dp" />
+        android:textSize="14sp" />
 
     <ListView
         android:id="@+id/amount_listview"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/amounts_text"
         tools:listitem="@android:layout/simple_list_item_1" >
@@ -49,15 +50,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
         android:text="Claim :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editClaim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/viewClaimtext"
-        android:layout_toRightOf="@+id/type_text"
-        android:ems="10" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/editdate"
@@ -75,7 +69,8 @@
         android:layout_below="@+id/viewClaimtext"
         android:layout_marginTop="17dp"
         android:text="Category  :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/datetext"
@@ -85,29 +80,8 @@
         android:layout_below="@+id/status_text"
         android:layout_marginTop="14dp"
         android:text="Date Started :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Spinner
-        android:id="@+id/editcatpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/status_text"
-        android:layout_alignLeft="@+id/editClaim"
-        android:layout_alignRight="@+id/editClaim"
-        android:layout_below="@+id/editClaim"
-        android:entries="@array/category_array"
-        tools:listitem="@android:layout/simple_spinner_item" />
-
-    <Spinner
-        android:id="@+id/editstatspinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/datetext"
-        android:layout_alignLeft="@+id/curspinneredit"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/type_text"
-        android:entries="@array/status_array"
-        tools:listitem="@android:layout/simple_spinner_item" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/status_text"
@@ -117,7 +91,8 @@
         android:layout_below="@+id/type_text"
         android:layout_marginTop="15dp"
         android:text="Status :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/amountfieldedit"
@@ -146,8 +121,8 @@
         android:id="@+id/curspinneredit"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editdate"
         android:layout_alignTop="@+id/amountfieldedit"
+        android:layout_toLeftOf="@+id/addamountbuttonedit"
         android:layout_toRightOf="@+id/viewClaimtext"
         android:entries="@array/currency_array"
         tools:listitem="@android:layout/simple_spinner_dropdown_item" />
@@ -165,10 +140,57 @@
     <ListView
         android:id="@+id/ListView01"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_alignTop="@+id/total_text"
         android:layout_toRightOf="@+id/total_text"
         tools:listitem="@android:layout/simple_list_item_1" >
     </ListView>
+
+    <EditText
+        android:id="@+id/editClaim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/viewClaimtext"
+        android:layout_alignBottom="@+id/viewClaimtext"
+        android:layout_toRightOf="@+id/type_text"
+        android:ems="10" />
+
+    <Spinner
+        android:id="@+id/editstatspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/datetext"
+        android:layout_toRightOf="@+id/status_text"
+        android:entries="@array/status_array"
+        tools:listitem="@android:layout/simple_spinner_item" />
+
+    <Spinner
+        android:id="@+id/editcatpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/type_text"
+        android:layout_alignBottom="@+id/type_text"
+        android:layout_alignLeft="@+id/editClaim"
+        android:entries="@array/category_array"
+        tools:listitem="@android:layout/simple_spinner_item" />
+
+    <TextView
+        android:id="@+id/descriptiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ListView01"
+        android:text="Description"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editdescriptiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/descriptiontext"
+        android:layout_toLeftOf="@+id/editbutton"
+        android:layout_toRightOf="@+id/emailbutton"
+        android:ems="10" />
 
 </RelativeLayout>
