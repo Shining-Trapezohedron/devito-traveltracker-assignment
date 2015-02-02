@@ -1,3 +1,22 @@
+/*
+   A simple Claim/Expense tracking program by James Devito
+
+    Copyright (C) 2015  James Devito
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    */
+
 package cs.ualberta.ca.devito_traveltracker_assignment;
 
 import java.util.ArrayList;
@@ -17,7 +36,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AddClaimActivity extends Activity {
+public class AddExpenseActivity extends Activity {
 	protected Spinner category_spinner;
 	protected Spinner status_spinner;
 	protected Spinner cur_spinner;
@@ -92,7 +111,7 @@ public class AddClaimActivity extends Activity {
 		String date2str = date2.getText().toString();
 		boolean flag = isAlpha(ClaimTextFromField);
 		if(flag == true){
-			Claim ourClaim = new Claim();
+			Expense ourClaim = new Expense();
 			
 			Spinner categoryS = (Spinner)findViewById(R.id.type_spinner);
 			String categorySet = categoryS.getSelectedItem().toString();
@@ -110,7 +129,7 @@ public class AddClaimActivity extends Activity {
 			for(int i = 0; i < amountstoadd.size(); i++){
 				ourClaim.addAmount(amountstoadd.get(i));
 			}
-			ClaimListController cs = new ClaimListController();
+			ExpenseListController cs = new ExpenseListController();
 			cs.addClaim(ourClaim);
 			
 			finish();
@@ -134,13 +153,5 @@ public class AddClaimActivity extends Activity {
 		
 	}
 		
-		
-	/*Spinner spinner = (Spinner) findViewById(R.id.type_spinner);
-	// Create an ArrayAdapter using the string array and a default spinner layout
-	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-	        R.array.category_array, android.R.layout.simple_spinner_item);
-	// Specify the layout to use when the list of choices appears
-	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	// Apply the adapter to the spinner
-	spinner.setAdapter(adapter);*/
+
 }

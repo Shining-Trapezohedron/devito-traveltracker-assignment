@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
   
 			public void onClick(View v) {
 				setResult(RESULT_OK);
-				Intent intent = new Intent(MainActivity.this, VieworEditActivity.class);
+				Intent intent = new Intent(MainActivity.this, ClaimSummaryActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
   
 			public void onClick(View v) {
 				setResult(RESULT_OK);
-				Intent intent = new Intent(MainActivity.this, AddClaimActivity.class);
+				Intent intent = new Intent(MainActivity.this, AddExpenseActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
   
 			public void onClick(View v) {
 				setResult(RESULT_OK);
-				Intent intent = new Intent(MainActivity.this, Superlist.class);
+				Intent intent = new Intent(MainActivity.this, ClaimHolderActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
     public void gotosuperlist(){
-    	Intent i = new Intent(MainActivity.this,Superlist.class);
+    	Intent i = new Intent(MainActivity.this,ClaimHolderActivity.class);
     	startActivity(i);
     }
 }

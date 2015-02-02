@@ -31,19 +31,19 @@
             android:label="@string/title_activity_vieworedit_liveview" >
         </activity>
         <activity
-            android:name=".VieworEditActivity"
+            android:name=".ClaimSummaryActivity"
             android:label="@string/title_activity_viewor_edit" >
         </activity>
         <activity
-            android:name=".AddClaimActivity"
+            android:name=".AddExpenseActivity"
             android:label="@string/title_activity_add_claim" >
         </activity>
         <activity
-            android:name=".Viewclaimactivity"
+            android:name=".ViewAndEditExpenseActivity"
             android:label="@string/title_activity_viewclaimactivity" >
         </activity>
         <activity
-            android:name=".Superlist"
+            android:name=".ClaimHolderActivity"
             android:label="@string/title_activity_superlist" >
         </activity>
     </application>

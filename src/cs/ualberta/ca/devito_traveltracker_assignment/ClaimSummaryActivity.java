@@ -1,3 +1,21 @@
+/*
+   A simple Claim/Expense tracking program by James Devito
+
+    Copyright (C) 2015  James Devito
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    */
 package cs.ualberta.ca.devito_traveltracker_assignment;
 
 import java.util.ArrayList;
@@ -16,15 +34,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class VieworEditActivity extends Activity {
+public class ClaimSummaryActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vieworedit_listview);
 		ListView listView = (ListView) findViewById(R.id.claimlistview);
-		final ArrayList<Claim> claimlist = ClaimListController.getClaimList().getClaimList();
-		final ArrayList<Claim> list = new ArrayList<Claim>(claimlist);
-		ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
+		final ArrayList<Expense> claimlist = ExpenseListController.getClaimList().getClaimList();
+		final ArrayList<Expense> list = new ArrayList<Expense>(claimlist);
+		ArrayAdapter<Expense> claimAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
 		listView.setAdapter(claimAdapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener(){
@@ -37,7 +55,7 @@ public class VieworEditActivity extends Activity {
 				//This section inspired by http://stackoverflow.com/a/7923530
 				//2/1/2015
 				//Toast.makeText(VieworEditActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show();
-				Intent intent = new Intent(VieworEditActivity.this, Viewclaimactivity.class);
+				Intent intent = new Intent(ClaimSummaryActivity.this, ViewAndEditExpenseActivity.class);
 				intent.putExtra("passClaim", claimlist.get(position));
 				startActivity(intent);
 				
@@ -52,11 +70,11 @@ public class VieworEditActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(VieworEditActivity.this, "Delete "+ list.get(position).toString(), 
+				Toast.makeText(ClaimSummaryActivity.this, "Delete "+ list.get(position).toString(), 
 					Toast.LENGTH_SHORT).show();	
-				Claim claim = list.get(position);
-				ClaimListController.getClaimList().removeClaim(claim);
-				VieworEditActivity.this.recreate();
+				Expense claim = list.get(position);
+				ExpenseListController.getClaimList().removeClaim(claim);
+				ClaimSummaryActivity.this.recreate();
 					
 				return false;
 			}

@@ -19,28 +19,24 @@
 
 package cs.ualberta.ca.devito_traveltracker_assignment;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Amount implements Serializable {
-	//Initialize all to easily identified not set flags
-	//If any not set don't let a claim type change
-	private int amount = -1;
-	private String currency = "NULL";
+public class ExpenseList {
+	private int size = 0;
+	private ArrayList<Expense> MyClaims = new ArrayList<Expense>();
 	
-	protected int getAmount(){
-		return amount;
+	public ArrayList<Expense> getClaimList(){
+		return MyClaims;
 	}
-	protected String getCurrency(){
-		return currency;
+	public void addClaim(Expense NewClaim){
+		MyClaims.add(NewClaim);
+		this.size++;
 	}
-	protected void setAmount(int newAmount){
-		amount = newAmount;
+	public void removeClaim(Expense claimToRemove){
+		MyClaims.remove(claimToRemove);
+		this.size--;
 	}
-	protected void setCurrency(String newCurrency){
-		currency = newCurrency;
-	}
-	public String toString(){
-		return String.valueOf(getAmount()) + " " + getCurrency();
-		
+	public int size(){
+		return this.size;
 	}
 }

@@ -35,14 +35,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Viewclaimactivity extends Activity {
+public class ViewAndEditExpenseActivity extends Activity {
 	private TextView claimText;
 	private Spinner catSpin;
 	private Spinner statSpin;
 	private TextView dateText;
 	private TextView descText;
 	private EditText ammountText;
-	private Claim gotClaim;
+	private Expense gotClaim;
 	//private ArrayList<Amount> total = new ArrayList<Amount>();
 
 	@Override
@@ -53,7 +53,7 @@ public class Viewclaimactivity extends Activity {
 		
 		TextView claimview;
 		Intent intent = getIntent();
-		gotClaim = (Claim) intent.getSerializableExtra("passClaim");
+		gotClaim = (Expense) intent.getSerializableExtra("passClaim");
 		
 		//Set all our text items in order they are shown on the screen
 		claimText = (TextView) findViewById(R.id.editClaim);
@@ -157,7 +157,7 @@ public class Viewclaimactivity extends Activity {
 	
 	public void editclaimaction(View v){		
 		if(!gotClaim.getStatus().equals("In Progress")){
-			Toast.makeText(Viewclaimactivity.this, "Sorry can't edit this claim is : " + gotClaim.getStatus(), 
+			Toast.makeText(ViewAndEditExpenseActivity.this, "Sorry can't edit this claim is : " + gotClaim.getStatus(), 
 					Toast.LENGTH_SHORT).show();
 			finish();
 		}else{
@@ -167,7 +167,7 @@ public class Viewclaimactivity extends Activity {
 			String descriptionText = descText.getText().toString();
 			boolean flag = isAlpha(ClaimTextFromField);
 			if(flag == true){
-				Claim ourClaim = new Claim();
+				Expense ourClaim = new Expense();
 			
 				Spinner categoryS = (Spinner)findViewById(R.id.editcatpinner);
 				String categorySet = categoryS.getSelectedItem().toString();
@@ -187,8 +187,8 @@ public class Viewclaimactivity extends Activity {
 				}
 				//ClaimListController cs = new ClaimListController();
 				//cs.setClaim(ourClaim,gotClaim);
-				ClaimListController.getClaimList().removeClaim(gotClaim);
-				ClaimListController.getClaimList().addClaim(ourClaim);
+				ExpenseListController.getClaimList().removeClaim(gotClaim);
+				ExpenseListController.getClaimList().addClaim(ourClaim);
 			
 				finish();
 			}
