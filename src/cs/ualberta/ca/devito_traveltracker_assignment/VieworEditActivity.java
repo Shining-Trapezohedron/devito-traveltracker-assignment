@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +22,7 @@ public class VieworEditActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vieworedit_listview);
 		ListView listView = (ListView) findViewById(R.id.claimlistview);
-		ArrayList<Claim> claimlist = ClaimListController.getClaimList().getClaimList();
+		final ArrayList<Claim> claimlist = ClaimListController.getClaimList().getClaimList();
 		final ArrayList<Claim> list = new ArrayList<Claim>(claimlist);
 		ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
 		listView.setAdapter(claimAdapter);
@@ -31,7 +32,11 @@ public class VieworEditActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				//This section inspired by http://stackoverflow.com/a/7923530
+				//2/1/2015
+				//Toast.makeText(VieworEditActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(VieworEditActivity.this, Viewclaimactivity.class);
+				intent.putExtra("passClaim", claimlist.get(position));
 				startActivity(intent);
 				
 			}

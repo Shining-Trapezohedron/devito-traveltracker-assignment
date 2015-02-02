@@ -1,37 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RelativeLayout1"
+    android:id="@+id/editClaimText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/viewClaimtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Claim :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/status_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/type_text"
-        android:text="Status :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/type_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/viewClaimtext"
-        android:text="Type  :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/editbutton"
@@ -76,24 +49,6 @@
         android:layout_alignParentLeft="true"
         android:text="E-Mail" />
 
-    <ListView
-        android:id="@+id/total_listview"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_above="@+id/editbutton"
-        android:layout_alignParentLeft="true"
-        tools:listitem="@android:layout/simple_list_item_1" >
-    </ListView>
-
-    <TextView
-        android:id="@+id/total_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/total_listview"
-        android:layout_alignParentLeft="true"
-        android:text="Total :"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <EditText
         android:id="@+id/amountfieldedit"
         android:layout_width="60dp"
@@ -101,14 +56,17 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/amount_listview"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
 
     <Spinner
         android:id="@+id/curspinneredit"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_alignTop="@+id/amountfieldedit"
-        android:layout_toRightOf="@+id/viewClaimtext"
+        android:layout_toRightOf="@+id/amountfieldedit"
         android:entries="@array/currency_array"
         tools:listitem="@android:layout/simple_spinner_dropdown_item" />
 
@@ -118,7 +76,61 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/curspinneredit"
-        android:layout_toRightOf="@+id/datetext"
+        android:layout_centerHorizontal="true"
         android:text="Add" />
+
+    <TextView
+        android:id="@+id/total_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/viewClaimtext"
+        android:layout_below="@+id/curspinneredit"
+        android:text="Total :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ListView
+        android:id="@+id/ListView01"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/total_text"
+        tools:listitem="@android:layout/simple_list_item_1" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/viewClaimtext"
+        android:text="Type  :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/viewClaimtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:text="Claim :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/type_text"
+        android:text="Status :"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/editClaim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/amounts_text"
+        android:ems="10" />
 
 </RelativeLayout>

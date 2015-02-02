@@ -19,5 +19,4 @@ public class ClaimList {
 	public int size(){
 		return this.size;
 	}
-	
 }

@@ -106,7 +106,7 @@ public class AddClaimActivity extends Activity {
 			ClaimListController cs = new ClaimListController();
 			cs.addClaim(ourClaim);
 			
-			
+			finish();
 			Intent intent = new Intent(AddClaimActivity.this, MainActivity.class);
 			startActivity(intent);
 		};

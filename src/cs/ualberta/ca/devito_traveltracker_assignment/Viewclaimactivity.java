@@ -1,9 +1,14 @@
 package cs.ualberta.ca.devito_traveltracker_assignment;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class Viewclaimactivity extends Activity {
@@ -13,6 +18,19 @@ public class Viewclaimactivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.claim_view);
+		
+		TextView claimview;
+		Intent intent = getIntent();
+		Claim gotClaim = (Claim) intent.getSerializableExtra("passClaim");
+		//int pos = (Integer) intent.getSerializableExtra("position");
+		claimview = (TextView) findViewById(R.id.editClaim);
+		claimview.setText(gotClaim.getName());
+		
+		ListView listView = (ListView) findViewById(R.id.amount_listview);
+		//Claim claim = ClaimListController.getClaimList().getClaimList().get(pos);
+		final ArrayList<Amount> list = gotClaim.getAmountsList();
+		ArrayAdapter<Amount> amountAdapter = new ArrayAdapter<Amount>(this, android.R.layout.simple_list_item_1, list);
+		listView.setAdapter(amountAdapter);
 	}
 
 	@Override

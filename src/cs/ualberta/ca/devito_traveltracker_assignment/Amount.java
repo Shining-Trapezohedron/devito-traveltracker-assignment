@@ -1,6 +1,8 @@
 package cs.ualberta.ca.devito_traveltracker_assignment;
 
-public class Amount {
+import java.io.Serializable;
+
+public class Amount implements Serializable {
 	//Initialize all to easily identified not set flags
 	//If any not set don't let a claim type change
 	private int amount = -1;
