@@ -16,18 +16,20 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
-package cs.ualberta.ca.devito_traveltracker_assignment;
+package cs.ualberta.ca.devito_notes;
 
-public class ExpenseListController {
+import java.util.ArrayList;
+
+public class ClaimHolderController {
 	//lazy singleton
-	private static ExpenseList claimList = null;
-	static public ExpenseList getClaimList(){
-		if (claimList == null){
-			claimList = new ExpenseList();
+	private static ArrayList<ClaimHolder> claimholderlist= null;
+	static public ArrayList<ClaimHolder> getClaimHolderList(){
+		if (claimholderlist == null){
+			claimholderlist = new ArrayList<ClaimHolder>();
 		}
-		return claimList;
+		return claimholderlist;
 	};
-	public void addClaim(Expense claimToAdd){
-		getClaimList().addClaim(claimToAdd);
+	public void addClaimHolder(ClaimHolder claimToAdd){
+		getClaimHolderList().add(claimToAdd);
 	}
 }

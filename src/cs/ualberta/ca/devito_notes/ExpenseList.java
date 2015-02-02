@@ -17,42 +17,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
-package cs.ualberta.ca.devito_traveltracker_assignment;
+package cs.ualberta.ca.devito_notes;
 
 import java.util.ArrayList;
 
-public class ClaimHolder {
-	private ArrayList<ExpenseList> Everything = new ArrayList<ExpenseList>();
-	private String name;
-	private String startdate;
-	private String enddate;
-	public void add(ExpenseList claimlist){
-		Everything.add(claimlist);
-	}
-	public ExpenseList get(int index){
-		return Everything.get(index);
-	}
-	public String getName(){
-		return name;
-	}
-	public void setName(String newname){
-		name = newname;
-	}
-	public String getStart(){
-		return startdate;
-	}
-	public void setStart(String newstart){
-		startdate = newstart;
-	}
-	public String getEnd(){
-		return enddate;
-	}
-	public void setEnd(String newend){
-		enddate = newend;
-	}
-	public String toString(){
-		String rv = name+"-"+startdate+" to "+enddate;
-		return rv;
-	}
+public class ExpenseList {
+	private int size = 0;
+	private ArrayList<Expense> MyClaims = new ArrayList<Expense>();
 	
+	public ArrayList<Expense> getClaimList(){
+		return MyClaims;
+	}
+	public void addClaim(Expense NewClaim){
+		MyClaims.add(NewClaim);
+		this.size++;
+	}
+	public void removeClaim(Expense claimToRemove){
+		MyClaims.remove(claimToRemove);
+		this.size--;
+	}
+	public int size(){
+		return this.size;
+	}
 }

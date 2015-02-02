@@ -16,20 +16,43 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
-package cs.ualberta.ca.devito_traveltracker_assignment;
+
+package cs.ualberta.ca.devito_notes;
 
 import java.util.ArrayList;
 
-public class ClaimHolderController {
-	//lazy singleton
-	private static ArrayList<ClaimHolder> claimholderlist= null;
-	static public ArrayList<ClaimHolder> getClaimHolderList(){
-		if (claimholderlist == null){
-			claimholderlist = new ArrayList<ClaimHolder>();
-		}
-		return claimholderlist;
-	};
-	public void addClaimHolder(ClaimHolder claimToAdd){
-		getClaimHolderList().add(claimToAdd);
+public class ClaimHolder {
+	private ArrayList<ExpenseList> Everything = new ArrayList<ExpenseList>();
+	private String name;
+	private String startdate;
+	private String enddate;
+	public void add(ExpenseList claimlist){
+		Everything.add(claimlist);
 	}
+	public ExpenseList get(int index){
+		return Everything.get(index);
+	}
+	public String getName(){
+		return name;
+	}
+	public void setName(String newname){
+		name = newname;
+	}
+	public String getStart(){
+		return startdate;
+	}
+	public void setStart(String newstart){
+		startdate = newstart;
+	}
+	public String getEnd(){
+		return enddate;
+	}
+	public void setEnd(String newend){
+		enddate = newend;
+	}
+	public String toString(){
+		String rv = name+"-"+startdate+" to "+enddate;
+		return rv;
+	}
+	
 }

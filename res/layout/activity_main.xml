@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cs.ualberta.ca.devito_traveltracker_assignment.MainActivity" >
+    tools:context="cs.ualberta.ca.devito_notes.MainActivity" >
 
     <TextView
         android:id="@+id/welcome_text"

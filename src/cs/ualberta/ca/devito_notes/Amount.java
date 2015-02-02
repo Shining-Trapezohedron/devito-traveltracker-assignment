@@ -17,26 +17,30 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
-package cs.ualberta.ca.devito_traveltracker_assignment;
+package cs.ualberta.ca.devito_notes;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class ExpenseList {
-	private int size = 0;
-	private ArrayList<Expense> MyClaims = new ArrayList<Expense>();
+public class Amount implements Serializable {
+	//Initialize all to easily identified not set flags
+	//If any not set don't let a claim type change
+	private int amount = -1;
+	private String currency = "NULL";
 	
-	public ArrayList<Expense> getClaimList(){
-		return MyClaims;
+	protected int getAmount(){
+		return amount;
 	}
-	public void addClaim(Expense NewClaim){
-		MyClaims.add(NewClaim);
-		this.size++;
+	protected String getCurrency(){
+		return currency;
 	}
-	public void removeClaim(Expense claimToRemove){
-		MyClaims.remove(claimToRemove);
-		this.size--;
+	protected void setAmount(int newAmount){
+		amount = newAmount;
 	}
-	public int size(){
-		return this.size;
+	protected void setCurrency(String newCurrency){
+		currency = newCurrency;
+	}
+	public String toString(){
+		return String.valueOf(getAmount()) + " " + getCurrency();
+		
 	}
 }

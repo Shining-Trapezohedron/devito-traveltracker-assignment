@@ -20,7 +20,7 @@
 //An Editted version of the Spinner example provided by
 //http://www.mkyong.com/android/android-spinner-drop-down-list-example/
 //2/2/2015
-package cs.ualberta.ca.devito_traveltracker_assignment;
+package cs.ualberta.ca.devito_notes;
  
 import android.view.View;
 import android.widget.AdapterView;

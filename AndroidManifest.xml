@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cs.ualberta.ca.devito_traveltracker_assignment"
+    package="cs.ualberta.ca.devito_notes"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="cs.ualberta.ca.devito_notes.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,27 +23,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Vieworedit_listview"
+            android:name="cs.ualberta.ca.devito_notes.Vieworedit_listview"
             android:label="@string/title_activity_vieworedit_listview" >
         </activity>
         <activity
-            android:name=".VieworEditLiveViewActivity"
+            android:name="cs.ualberta.ca.devito_notes.VieworEditLiveViewActivity"
             android:label="@string/title_activity_vieworedit_liveview" >
         </activity>
         <activity
-            android:name=".ClaimSummaryActivity"
+            android:name="cs.ualberta.ca.devito_notes.ClaimSummaryActivity"
             android:label="@string/title_activity_viewor_edit" >
         </activity>
         <activity
-            android:name=".AddExpenseActivity"
+            android:name="cs.ualberta.ca.devito_notes.AddExpenseActivity"
             android:label="@string/title_activity_add_claim" >
         </activity>
         <activity
-            android:name=".ViewAndEditExpenseActivity"
+            android:name="cs.ualberta.ca.devito_notes.ViewAndEditExpenseActivity"
             android:label="@string/title_activity_viewclaimactivity" >
         </activity>
         <activity
-            android:name=".ClaimHolderActivity"
+            android:name="cs.ualberta.ca.devito_notes.ClaimHolderActivity"
             android:label="@string/title_activity_superlist" >
         </activity>
     </application>

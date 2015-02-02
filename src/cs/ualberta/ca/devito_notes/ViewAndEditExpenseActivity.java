@@ -17,10 +17,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
-package cs.ualberta.ca.devito_traveltracker_assignment;
+package cs.ualberta.ca.devito_notes;
 
 import java.util.ArrayList;
 
+import cs.ualberta.ca.devito_notes.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
